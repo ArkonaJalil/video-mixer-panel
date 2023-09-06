@@ -1,0 +1,170 @@
+{
+  "$id": "skaarhoj_panel.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Panel configuration",
+  "properties": {
+    "panel_model": {
+      "type": "string",
+      "enum": ["SK_AIRFLYPROV3", "SK_MASTERKEYONE"],
+      "description": "SK_AIRFLYPROV3 / SK_MASTERKEYONE"
+    },
+    "panel_ip": {
+      "type": "string",
+      "description": "Ip address of the skaarhoj panel"
+    },
+    "panel_port": {
+      "type": "number",
+      "description": "Port number of the skaarhoj panel"
+    },
+    "machine_ip": {
+      "type": "string",
+      "description": "Ip address of the avp machine.The machine can be either AT300 or C100"
+    },
+    "panel_layout": {
+      "type": "object",
+      "properties": {
+        "meLevel": {
+          "$ref": "#/definitions/ME_LEVEL"
+        }
+      },
+      "description": "",
+      "required": ["meLevel"]
+    }
+  },
+  "required": ["panel_model", "panel_ip", "panel_port", "machine_ip", "panel_layout"],
+  "definitions": {
+    "ME_LEVEL": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "xbarElements": {
+            "$ref": "#/definitions/XBAR_ELEMENTS"
+          },
+          "mixerElements": {
+            "$ref": "#/definitions/MIXER_ELEMENTS"
+          },
+          "keyerElements": {
+            "$ref": "#/definitions/KEYER_ELEMENTS"
+          }
+        },
+        "required": ["xbarElements", "mixerElements", "keyerElements"]
+      }
+    },
+    "XBAR_ELEMENTS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "buttonIndex": {
+            "type": "integer",
+            "$ref": "#/definitions/BUTTON_INDEX",
+            "maximum": 11,
+            "minimum": 0
+          },
+          "essenceIndex": {
+            "$ref": "#/definitions/ESSENCE_INDEX"
+          },
+          "essenceType": {
+            "$ref": "#/definitions/ESSENCE_TYPE"
+          },
+          "name": {
+            "$ref": "#/definitions/BUTTON_NAME"
+          }
+        },
+        "required": ["buttonIndex", "essenceIndex", "essenceType", "name"]
+      },
+      "description": "It can be created a maximum of 12 xbar elements per me level in this application"
+    },
+    "KEYER_ELEMENTS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "buttonIndex": {
+            "type": "integer",
+            "$ref": "#/definitions/BUTTON_INDEX",
+            "minimum": 0
+          },
+          "fill_key": {
+            "$ref": "#/definitions/ESSENCE_ENTRY"
+          },
+          "signal_key": {
+            "$ref": "#/definitions/ESSENCE_ENTRY"
+          },
+          "name": {
+            "$ref": "#/definitions/BUTTON_NAME"
+          }
+        },
+        "required": ["buttonIndex", "fill_key", "signal_key", "name"]
+      },
+      "description": "(Unavailable now)It can be created a maximum of x keyer elements per me level in this application"
+    },
+    "MIXER_ELEMENTS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "buttonIndex": {
+            "type": "integer",
+            "$ref": "#/definitions/BUTTON_INDEX",
+            "maximum": 4,
+            "minimum": 0
+          },
+          "index": {
+            "type": "integer",
+            "description": "Index of mixer"
+          },
+          "rootMixerIndex": {
+            "type": "integer",
+            "description": "Index of root mixer. For mixer in mixer mode it will be the same as index. For Keyer it will refer to the root mixer "
+          },
+          "name": {
+            "$ref": "#/definitions/BUTTON_NAME"
+          }
+        },
+        "required": ["buttonIndex", "index", "rootMixerIndex", "name"]
+      },
+      "description": "It can be created a maximum of 4 mixer units per me level in this application"
+    },
+
+    "BUTTON_INDEX": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Sets the position of button"
+    },
+    "ESSENCE_ENTRY": {
+      "type": "object",
+      "properties": {
+        "essenceIndex": {
+          "$ref": "#/definitions/ESSENCE_INDEX"
+        },
+        "essenceType": {
+          "$ref": "#/definitions/ESSENCE_TYPE"
+        }
+      },
+      "required": ["essenceIndex", "essenceType"]
+    },
+    "ESSENCE_INDEX": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Sets index of certain essence type"
+    },
+    "ESSENCE_TYPE": {
+      "type": "string",
+      "enum": [
+        "color_correction",
+        "video_mixer",
+        "video_signal_generator",
+        "re_play",
+        "r_t_p_receiver"
+      ],
+      "description": "color_correction / video_mixer / video_signal_generator / re_play / sdi / r_t_p_receiver "
+    },
+    "BUTTON_NAME": {
+      "type": "string",
+      "description": "Sets the display text for the button"
+    }
+  }
+}
