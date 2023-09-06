@@ -245,7 +245,7 @@ Current **essenceTypes** are supported:
 
 - video_mixer
 - r_t_p_receiver
-- re_play (delay)
+- re_play (delay_player)
 - color_correction
 - video_signal_generator
 
