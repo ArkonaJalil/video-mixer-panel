@@ -69,9 +69,7 @@ export class XbarClass {
     for (let el of xbar_collection) el.programElement.button_dimm();
     const program_src = anc_input === 0 ? root_video_mixer.v_src0 : root_video_mixer.v_src1;
     await program_src.command.write(this.video_essence);
-    console.log('before programm button status', this.programElement.button_status);
-    // this.programElement.button_on();
-    console.log('after programm button status', this.programElement.button_status);
+    this.programElement.button_on();
   }
 
   async preset_handler(mixer_class: MixerClass, xbar_collection: XbarClass[]) {
@@ -79,6 +77,6 @@ export class XbarClass {
     for (let el of xbar_collection) el.presetElement.button_dimm();
     const preset_src = anc_input === 1 ? root_video_mixer.v_src0 : root_video_mixer.v_src1;
     await preset_src.command.write(this.video_essence);
-    // this.presetElement.button_on();
+    this.presetElement.button_on();
   }
 }

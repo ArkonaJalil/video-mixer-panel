@@ -31,7 +31,7 @@ const main = async () => {
       console.log('To start the script first terminate all other connections to the panel!');
       break;
     }
-    // console.log({ panel_alive, i });
+    console.log({ panel_alive, i });
     if (!panel_alive) {
       console.log('===> go to loop for reviving panel', i);
       //set machien uncheck flags to true

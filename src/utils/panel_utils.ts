@@ -3,18 +3,18 @@ import { setHwcColor, setHwcStatus, setHwcDisplayLabel1Label2 } from './hwc_util
 import { BUTTON_STATUS } from './types.js';
 import { SK_MODEL } from './key_collection/key_collection.js';
 
-export async function createClient(connectionInfo: { host: string; port: number }) {
-  const { host, port } = connectionInfo;
-  const client = new Socket({});
-  client.connect({ port, host }, async () => {
-    console.log({ action: 'connecting to server', port, host });
-    client.write(`ping\n`);
-    client.write('clear\n');
-    // client.write(`SendPanelInfo\n`);
-    // client.write(`list`);
-  });
-  return client;
-}
+// export async function createClient(connectionInfo: { host: string; port: number }) {
+//   const { host, port } = connectionInfo;
+//   const client = new Socket({});
+//   client.connect({ port, host }, async () => {
+//     console.log({ action: 'connecting to server', port, host });
+//     client.write(`ping\n`);
+//     client.write('clear\n');
+//     // client.write(`SendPanelInfo\n`);
+//     // client.write(`list`);
+//   });
+//   return client;
+// }
 
 //SECTION build the layout
 

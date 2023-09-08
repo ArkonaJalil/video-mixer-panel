@@ -304,36 +304,18 @@ export async function sendMultiStatus(
     if (color != null) setHwcColor(c, panel_model, code, color);
     setHwcStatus(c, panel_model, code, mode);
   }
-  // await Promise.all(
-  //   keyCollection.map(key=>{
-  //     if(color != null) setHwcColor(c,key.code,color)
-  //     setHwcStatus(c,key.code,mode);
-  //   })
-  // )
 }
 
-// export function pressedKeys(keyCodes:string[]){
-//   //see if all are pressed
-//   const FOUND_KEYS = KEY_COLLECTION.filter(el=>keyCodes.indexOf(el.alias)>=0 || keyCodes.indexOf(el.code)>=0)
-//   const RESULT = FOUND_KEYS.filter(el=>el.isPressed === false)
-//   if(RESULT.length === 0)return true;
-//   for(const NOT_PRESSED of RESULT){
-//     console.log({NOT_PRESSED})
-//   }
-//   return false;
-// }
-
 export function get_model_info(input: string) {
-  console.log('get_model_info', input);
+  // console.log('get_model_info', input);
   const regex = /_model=([^\s]+)/;
   const match = input.match(regex);
   if (match == null) return null;
-  console.log(match[1]);
+  // console.log(match[1]);
   return match[1] as SK_MODEL;
 }
 
 export function set_no_connection_mode(c: Socket) {
-  console.log('trigger here ======================>');
   c.write('ClearDisplays\n');
   for (let i = 0; i < 126; i++) {
     c.write(`HWC#${i}=${514}\n`);

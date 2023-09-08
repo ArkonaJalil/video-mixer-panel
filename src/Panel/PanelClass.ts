@@ -121,6 +121,7 @@ export class PanelClass {
     client.connect(this.panel_port, this.panel_ip, () => {
       console.log('Connected to panel');
       client.write(`ping\n`);
+      client.write(`SleepTimer=0\n`);
       client.write('clear\n');
     });
 
@@ -374,39 +375,6 @@ export class PanelClass {
 
         if (this.active_mixer_class == null) return;
         // await this.active_mixer_class.trigger_srcs();
-        // const code = this.panel_model === 'SK_MASTERKEYONE' ? 93 : 49;
-        // this.socket.write(`HWC#${code}=4`);
-        // this.socket.write(`HWCc#${code}=137`);
-
-        // // let input = `${this.debug_num}|2|40|Value`;
-
-        // // this.socket.write(`HWCt#${code}=${input}`);
-        // this.socket.write(`HWCx#${code}=${this.debug_num}`);
-
-        // console.log('debug_num', this.debug_num);
-        // // for (let i = 0; i < 1000; i++) {
-        // // }
-
-        // // this.socket.write('HWCt#88=|0||NoobNoobNoob|1|faggotfaggotfaggot||||,||||||||1');
-        // // let s = [value]|[format]|[fine]|[Title]|[isLabel]|[label 1 ]|[label 2]|[value2]|[values pair]|
-        // // [scale]|[scale range low]|[scale range high]|[scale limit low]|[scale limit
-        // // high]|[img]|[font]|[font size]|[advanced settings]
-        // // let string = "|||||||||||||||[font]|[font size]|";
-        // // let string = '|||||hellohellohellohello||||||||||0|50|';
-        // // console.log('debug_num', this.debug_num);
-
-        // // // let string = `|11||||Conn|||||||||||2|1`;
-        // // // let string1 = `|11||||ected|||||||||||2|1`;
-        // // // let string2 = `|11||||172.16|||||||||||1|1`;
-        // // // let string3 = `|11||||.167.2|||||||||||1|1`;
-
-        // // let text1 = 'Connected';
-        // // let text2 = '172.16';
-        // // let text3 = '.167.2';
-        // // let code_string = `|11||${text1}||${text2}|${text3}`;
-        // // this.socket.write(`HWCt#69=${code_string}`);
-        // // this.socket.write(`HWCt#88=${code_string}`);
-        // this.debug_num = this.debug_num + 1;
         break;
       case 'mixer':
         let mixer_element = this.mixerElementCollection.find(
@@ -533,7 +501,7 @@ export class PanelClass {
       }
 
       this.machine_connection_status = rdy;
-      // console.log('vm %s  alive %s %d', ip, rdy, i);
+      console.log('vm %s  alive %s %d', ip, rdy, i);
 
       if (this.socket_destroy_status) break;
       if (this.machine_uncheck_flag) break;

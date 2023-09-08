@@ -58,7 +58,7 @@ export class SliderClass extends PanelElementClass {
           ? (await video_mixer.luma_keyer.opacity.transition.read()).target
           : await video_mixer.mixer.fader0.current.read();
       let slider_check_status = this.slider_check(this.slider_value, current_range);
-      console.log('=============Check for release===============', slider_check_status);
+      // console.log('=============Check for release===============', slider_check_status);
       if (slider_check_status) mixer_class.slider_check = true;
       return;
     }
