@@ -14,8 +14,8 @@ export function getVideoEssence(vm: VM.Any, essenceEntry: ESSENCE_ENTRY): VIDEO_
       return getVideoSignalGeneratorEssence(vm, index);
     case 're_play':
       return getReplayEssence(vm, index);
-    // case 'sdi':
-    //   return getSdiOutputEssence(vm, index);
+    case 'sdi':
+      return getSdiOutputEssence(vm, index);
     case 'color_correction':
       return getColorCorrection(vm, index);
     default:
@@ -53,11 +53,11 @@ function getVideoSignalGeneratorEssence(vm: VM.Any, index: number) {
   return signal_generator.instances.row(index).output;
 }
 
-// function getSdiOutputEssence(vm: VM.Any, index: number) {
-//   const i_o_module = enforce_nonnull(vm.i_o_module);
-//   if (i_o_module.input.row(index) == null) return null;
-//   return i_o_module.input.row(index).sdi.output.video;
-// }
+function getSdiOutputEssence(vm: VM.Any, index: number) {
+  const i_o_module = enforce_nonnull(vm.i_o_module);
+  if (i_o_module.input.row(index) == null) return null;
+  return i_o_module.input.row(index).sdi.output.video;
+}
 
 export function parse_video_essence(
   essence: AT1130.Video.Essence | AT1101.Video.Essence | undefined | null,
@@ -109,6 +109,13 @@ export function parse_video_essence(
       return {
         essenceType: 're_play',
         essenceIndex: parseInt(videoDelayIndexString[0] == null ? '-1' : videoDelayIndexString[0]),
+      };
+    case 'i_o_module': // NOTE this is for type sdi
+      let sdiIndexString = suffix.match(/(\d+)/);
+      if (sdiIndexString == null) return { essenceType: 'sdi', essenceIndex: -1 };
+      return {
+        essenceType: 'sdi',
+        essenceIndex: parseInt(sdiIndexString[0] == null ? '-1' : sdiIndexString[0]),
       };
     default:
       // console.log(`Error: ${type} is not implemented inside parseVideoEssence!`);

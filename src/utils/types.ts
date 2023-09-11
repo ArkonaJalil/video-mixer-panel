@@ -24,6 +24,22 @@ export type ME_LEVEL = {
   xbarElements: XBAR_ELEMENT[];
   mixerElements: MIXER_ELEMENT[];
   keyerElements: KEYER_ELEMENT[];
+  routeOutElements: ROUTE_OUT_ELEMENT[];
+  routeInElements: ROUTE_IN_ELEMENT[];
+};
+
+export type ROUTE_OUT_ELEMENT = {
+  buttonIndex: number;
+  outputType: ROUTE_OUTPUT_TYPE;
+  outputIndex: number;
+  name: string;
+};
+
+export type ROUTE_IN_ELEMENT = {
+  buttonIndex: number;
+  essenceType: ESSENCE_TYPES;
+  essenceIndex: number;
+  name: string;
 };
 
 export type XBAR_ELEMENT = {
@@ -121,7 +137,10 @@ export declare type ESSENCE_TYPES =
   | 're_play'
   | 'r_t_p_receiver'
   | 'N/A'
+  | 'sdi'
   | 'i_o_module';
+
+export type ROUTE_OUTPUT_TYPE = 'sdi_output' | 'live_view' | 'rtp_tx';
 
 export declare type OLD_VIDEO_ESSENCE = AT1130.Video.Essence | AT1101.Video.Essence;
 
@@ -184,6 +203,8 @@ export declare type KEY_GROUPS =
   | 'me_display'
   | 'display'
   | 'cut'
+  | 'route_out'
+  | 'route_in'
   | 'auto'
   | 'shift'
   | 'ftb'

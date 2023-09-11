@@ -53,3 +53,12 @@ export const VM_CHECK_ALIVE_INTERVAL = new Duration(1, 's');
 //SECTION PANEL SCRIPT
 export const PANEL_CHECK_ALIVE_INTERVAL = new Duration(5, 's');
 export const PANEL_CHECK_REVIVE_INTERVAL = new Duration(1, 's');
+
+//SECTION Route Out Class
+export const ROUTE_OUT_BUTTON_COLOUR = 'green';
+export const ROUTE_OUT_AIRFLYPROV3_OFFSET = 57;
+export const ROUTE_OUT_MASTERONE_OFFSET = 115;
+//SECTION Route In Class
+export const ROUTE_IN_BUTTON_COLOUR = 'red';
+export const ROUTE_IN_AIRFLYPROV3_OFFSET = 38;
+export const ROUTE_IN_MASTERONE_OFFSET = 99;

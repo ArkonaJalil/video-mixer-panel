@@ -65,6 +65,7 @@ export class XbarClass {
   }
 
   async program_handler(mixer_class: MixerClass, xbar_collection: XbarClass[]) {
+    console.log('program_handler', mixer_class.rootMixerIndex, mixer_class.mixerIndex);
     const { root_video_mixer, anc_input } = mixer_class;
     for (let el of xbar_collection) el.programElement.button_dimm();
     const program_src = anc_input === 0 ? root_video_mixer.v_src0 : root_video_mixer.v_src1;

@@ -1,6 +1,6 @@
 {
   "$schema": "./types/schema.json",
-  "panel_ip": "172.16.0.190",
+  "panel_ip": "172.16.39.109",
   "panel_model": "SK_AIRFLYPROV3",
   "panel_port": 9923,
   "machine_ip": "172.16.39.32",
@@ -37,8 +37,8 @@
           {
             "buttonIndex": 0,
             "essenceIndex": 0,
-            "essenceType": "r_t_p_receiver",
-            "name": "Multiviewer"
+            "essenceType": "sdi",
+            "name": "SDI 0"
           },
           {
             "buttonIndex": 1,
@@ -107,7 +107,77 @@
             "name": "Arkona"
           }
         ],
-        "keyerElements": []
+        "keyerElements": [],
+        "routeOutElements": [
+          {
+            "buttonIndex": 0,
+            "name": "SDI OUT 0",
+            "outputIndex": 0,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 1,
+            "name": "SDI OUT 1",
+            "outputIndex": 1,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 2,
+            "name": "SDI OUT 2",
+            "outputIndex": 2,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 3,
+            "name": "SDI OUT 3",
+            "outputIndex": 3,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 4,
+            "name": "RTP RX 0",
+            "outputIndex": 0,
+            "outputType": "rtp_tx"
+          },
+          {
+            "buttonIndex": 5,
+            "name": "Live View",
+            "outputIndex": 0,
+            "outputType": "live_view"
+          }
+        ],
+        "routeInElements": [
+          {
+            "buttonIndex": 0,
+            "essenceIndex": 0,
+            "essenceType": "r_t_p_receiver",
+            "name": "Sdi Input 0"
+          },
+          {
+            "buttonIndex": 1,
+            "essenceIndex": 5,
+            "essenceType": "video_mixer",
+            "name": "Mixer 5"
+          },
+          {
+            "buttonIndex": 2,
+            "essenceIndex": 0,
+            "essenceType": "color_correction",
+            "name": "CC 0"
+          },
+          {
+            "buttonIndex": 3,
+            "essenceIndex": 0,
+            "essenceType": "r_t_p_receiver",
+            "name": "RTP 0"
+          },
+          {
+            "buttonIndex": 4,
+            "essenceIndex": 0,
+            "essenceType": "re_play",
+            "name": "Delay 0"
+          }
+        ]
       },
       {
         "mixerElements": [
@@ -168,7 +238,77 @@
           { "buttonIndex": 10, "essenceIndex": 2, "essenceType": "r_t_p_receiver", "name": "Golf" },
           { "buttonIndex": 11, "essenceIndex": 3, "essenceType": "r_t_p_receiver", "name": "Owl" }
         ],
-        "keyerElements": []
+        "keyerElements": [],
+        "routeOutElements": [
+          {
+            "buttonIndex": 0,
+            "name": "SDI OUT 0",
+            "outputIndex": 0,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 1,
+            "name": "SDI OUT 1",
+            "outputIndex": 1,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 2,
+            "name": "SDI OUT 2",
+            "outputIndex": 2,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 3,
+            "name": "SDI OUT 3",
+            "outputIndex": 3,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 4,
+            "name": "SDI OUT 4",
+            "outputIndex": 4,
+            "outputType": "sdi_output"
+          },
+          {
+            "buttonIndex": 5,
+            "name": "SDI OUT 5",
+            "outputIndex": 5,
+            "outputType": "sdi_output"
+          }
+        ],
+        "routeInElements": [
+          {
+            "buttonIndex": 0,
+            "essenceIndex": 0,
+            "essenceType": "sdi",
+            "name": "Sdi Input 0"
+          },
+          {
+            "buttonIndex": 1,
+            "essenceIndex": 0,
+            "essenceType": "video_mixer",
+            "name": "Mixer 0"
+          },
+          {
+            "buttonIndex": 2,
+            "essenceIndex": 0,
+            "essenceType": "color_correction",
+            "name": "CC 0"
+          },
+          {
+            "buttonIndex": 3,
+            "essenceIndex": 0,
+            "essenceType": "r_t_p_receiver",
+            "name": "RTP 0"
+          },
+          {
+            "buttonIndex": 4,
+            "essenceIndex": 0,
+            "essenceType": "re_play",
+            "name": "Delay 0"
+          }
+        ]
       }
     ]
   }

@@ -25,6 +25,8 @@ export function createDefaultPanelLayout() {
           { buttonIndex: 11, essenceIndex: 0, essenceType: 're_play', name: 'Arkona' },
         ],
         keyerElements: [],
+        routeInElements: [],
+        routeOutElements: [],
       },
       {
         mixerElements: [
@@ -51,6 +53,8 @@ export function createDefaultPanelLayout() {
           { buttonIndex: 11, essenceIndex: 3, essenceType: 'r_t_p_receiver', name: 'Owl' },
         ],
         keyerElements: [],
+        routeInElements: [],
+        routeOutElements: [],
       },
       {
         mixerElements: [
@@ -77,6 +81,8 @@ export function createDefaultPanelLayout() {
           { buttonIndex: 11, essenceIndex: 3, essenceType: 'r_t_p_receiver', name: 'Owl' },
         ],
         keyerElements: [],
+        routeInElements: [],
+        routeOutElements: [],
       },
     ],
   };
