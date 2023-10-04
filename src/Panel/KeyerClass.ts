@@ -30,8 +30,16 @@ export class KeyerClass extends PanelElementClass {
     this.fill_key = el.fill_key;
     this.signal_key = el.signal_key;
 
-    this.fill_key_essence = getVideoEssence(this.vm, this.fill_key);
-    this.signal_key_essence = getVideoEssence(this.vm, this.signal_key);
+    this.fill_key_essence = getVideoEssence(
+      this.vm,
+      this.fill_key.essenceType,
+      this.fill_key.essenceIndex,
+    );
+    this.signal_key_essence = getVideoEssence(
+      this.vm,
+      this.signal_key.essenceType,
+      this.signal_key.essenceIndex,
+    );
     this.init_panel_element();
   }
 

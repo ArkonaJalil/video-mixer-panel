@@ -219,14 +219,16 @@
     "ESSENCE_TYPE": {
       "type": "string",
       "enum": [
-        "color_correction",
+        "cc1d",
+        "cc3d",
+        "delay",
+        "player",
+        "sdi",
         "video_mixer",
         "video_signal_generator",
-        "re_play",
-        "r_t_p_receiver",
-        "sdi"
+        "r_t_p_receiver"
       ],
-      "description": "color_correction / video_mixer / video_signal_generator / re_play / sdi / r_t_p_receiver "
+      "description": "cc1d / cc3d / delay / player /video_mixer / video_signal_generator / sdi / r_t_p_receiver "
     },
     "BUTTON_NAME": {
       "type": "string",

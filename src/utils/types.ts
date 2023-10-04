@@ -131,14 +131,15 @@ export declare type PANEL_DETAILS = {
 };
 
 export declare type ESSENCE_TYPES =
-  | 'color_correction'
   | 'video_mixer'
   | 'video_signal_generator'
-  | 're_play'
   | 'r_t_p_receiver'
   | 'N/A'
   | 'sdi'
-  | 'i_o_module';
+  | 'delay'
+  | 'player'
+  | 'cc3d'
+  | 'cc1d';
 
 export type ROUTE_OUTPUT_TYPE = 'sdi_output' | 'live_view' | 'rtp_tx';
 

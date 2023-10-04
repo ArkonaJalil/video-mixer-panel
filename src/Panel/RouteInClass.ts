@@ -42,59 +42,51 @@ export class RouteInClass extends PanelElementClass {
         | AT1101.Monitoring.LiveView
         | AT1130.Monitoring.LiveView;
 
-      let video_essence = getVideoEssence(this.vm, {
-        essenceIndex: this.essenceIndex,
-        essenceType: this.essenceType,
-      });
+      let video_essence = getVideoEssence(this.vm, this.essenceType, this.essenceIndex);
       await casted_output.v_src.command.write(video_essence);
     }
     if (output_type === 'sdi_output') {
-      let casted_output = active_out.get_output() as
-        | AT1101.IOModule.Output
-        | AT1130.IOModule.Output;
       if (this.vm instanceof AT1101.Root) {
-        //TODO lokup here again
-        console.log(
-          'ERROR [ROUTE IN CLASS] lookup how to set this video essence for sdi_output for c100',
-        );
-        // let video_essence = getVideoEssence(this.vm, {
-        //   essenceIndex: this.essenceIndex,
-        //   essenceType: this.essenceType,
-        // }) as AT1101.Video.Essence;
-        // await casted_output.sdi.v_src.command.write({ source: video_essence, switch_time: null });
+        let casted_output = active_out.get_output() as AT1101.IOModule.Output;
+        let video_essence = getVideoEssence(
+          this.vm,
+          this.essenceType,
+          this.essenceIndex,
+        ) as AT1101.Video.Essence;
+        await casted_output.sdi.v_src.command.write({ source: video_essence, switch_time: null });
       }
 
       if (this.vm instanceof AT1130.Root) {
-        let video_essence = getVideoEssence(this.vm, {
-          essenceIndex: this.essenceIndex,
-          essenceType: this.essenceType,
-        }) as AT1130.Video.Essence;
+        let casted_output = active_out.get_output() as AT1130.IOModule.Output;
+        let video_essence = getVideoEssence(
+          this.vm,
+          this.essenceType,
+          this.essenceIndex,
+        ) as AT1130.Video.Essence;
         await casted_output.sdi.v_src.command.write({ source: video_essence, switch_time: null });
       }
     }
 
     if (output_type === 'rtp_tx') {
-      let casted_output = active_out.get_output() as
-        | AT1101.RTPTransmitter.VideoStreamerAsNamedTableRow
-        | AT1130.RTPTransmitter.VideoStreamerAsNamedTableRow;
-
       if (this.vm instanceof AT1101.Root) {
-        console.log(
-          'ERROR [ROUTE IN CLASS] lookup how to set this video essence for rtp_tx for c100',
-        );
-        // //TODO here look up again
-        // let video_essence = getVideoEssence(this.vm, {
-        //   essenceIndex: this.essenceIndex,
-        //   essenceType: this.essenceType,
-        // }) as AT1101.Video.Essence;
-        // await casted_output.v_src.command.write({ source: video_essence, switch_time: null });
+        let casted_output =
+          active_out.get_output() as AT1101.RTPTransmitter.VideoStreamerAsNamedTableRow;
+        let video_essence = getVideoEssence(
+          this.vm,
+          this.essenceType,
+          this.essenceIndex,
+        ) as AT1101.Video.Essence;
+        await casted_output.v_src.command.write({ source: video_essence, switch_time: null });
       }
 
       if (this.vm instanceof AT1130.Root) {
-        let video_essence = getVideoEssence(this.vm, {
-          essenceIndex: this.essenceIndex,
-          essenceType: this.essenceType,
-        }) as AT1130.Video.Essence;
+        let casted_output =
+          active_out.get_output() as AT1130.RTPTransmitter.VideoStreamerAsNamedTableRow;
+        let video_essence = getVideoEssence(
+          this.vm,
+          this.essenceType,
+          this.essenceIndex,
+        ) as AT1130.Video.Essence;
         await casted_output.v_src.command.write({ source: video_essence, switch_time: null });
       }
     }

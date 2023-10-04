@@ -103,7 +103,7 @@
           {
             "buttonIndex": 11,
             "essenceIndex": 0,
-            "essenceType": "re_play",
+            "essenceType": "delay",
             "name": "Arkona"
           }
         ],
@@ -162,7 +162,7 @@
           {
             "buttonIndex": 2,
             "essenceIndex": 0,
-            "essenceType": "color_correction",
+            "essenceType": "cc1d",
             "name": "CC 0"
           },
           {
@@ -174,7 +174,7 @@
           {
             "buttonIndex": 4,
             "essenceIndex": 0,
-            "essenceType": "re_play",
+            "essenceType": "cc1d",
             "name": "Delay 0"
           }
         ]
@@ -220,7 +220,7 @@
             "name": "Blade"
           },
           { "buttonIndex": 4, "essenceIndex": 14, "essenceType": "r_t_p_receiver", "name": "FPGA" },
-          { "buttonIndex": 5, "essenceIndex": 0, "essenceType": "re_play", "name": "Arkona" },
+          { "buttonIndex": 5, "essenceIndex": 0, "essenceType": "delay", "name": "Arkona" },
           {
             "buttonIndex": 6,
             "essenceIndex": 0,
@@ -293,7 +293,7 @@
           {
             "buttonIndex": 2,
             "essenceIndex": 0,
-            "essenceType": "color_correction",
+            "essenceType": "cc1d",
             "name": "CC 0"
           },
           {
@@ -305,7 +305,7 @@
           {
             "buttonIndex": 4,
             "essenceIndex": 0,
-            "essenceType": "re_play",
+            "essenceType": "delay",
             "name": "Delay 0"
           }
         ]
